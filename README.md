@@ -1,7 +1,7 @@
 # Web-VR
 A multi-repo of my Web VR examples and experiments
 
-[Live Demos](http://jamesbels.github.io/webvr)
+[Live Demos](https://jamesabels.github.io/webvr/dist/)
 
 ## Build Setup
 
