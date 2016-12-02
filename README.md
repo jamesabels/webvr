@@ -1,1 +1,2 @@
-# A multi-repo of my Web VR examples and experiments
+# Web VR
+A multi-repo of my Web VR examples and experiments
