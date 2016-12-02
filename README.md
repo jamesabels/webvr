@@ -1,2 +1,1 @@
-# webvr
-A list of resources and communities in the Web VR multiverse
+# A multi-repo of my Web VR examples and experiments
