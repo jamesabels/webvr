@@ -1,26 +1,43 @@
 <template>
     <a-scene>
-      <a-sky color="lightblue"></a-sky>
 
-      <a-entity position="0 2.82 -6.91" camera="active:false;userHeight:1.6;near:0.01" wasd-controls="" rotation="0 0 0" look-controls="" aframe-injected="" data-aframe-inspector="default-camera"></a-entity>
+      <a-assets>
+          <img src="../assets/bg_combined.png" id="img-photosphere-1">
+          <img src="../assets/ui.png" id="img-uisphere-1">
+      </a-assets>
 
-      <!--Box-->
-      <a-entity 
-        data-v-641b6402="" 
-        position="0.08 2.78 -10.71" 
-        geometry="primitive:box;depth:1" 
-        material="color:salmon;opacity:0.8">
+      <!--Camera and Cursor-->
+      <a-entity position="0 1.8 5">
+        <a-entity
+            id="camera" 
+            camera="far: 10000; fov: 80; near: 0.5;"
+            look-controls="enabled: true">
+            <a-entity
+                cursor="fuse: false; maxDistance: 500; timeout: 3000;"
+                id="cursor"
+                position="0 0 -3.4"
+                geometry="primitive: ring; radiusOuter: 0.10; radiusInner: 0.05;"
+                material="color: darkorchid; shader: flat;"
+                visible="false">
+            </a-entity>
+        </a-entity>
       </a-entity>
 
-      <!--Light-->
+      <!--Background-->
       <a-entity 
-        light="color:#FFF;intensity:0.10" 
-        position="0.03 5.21 -10.17" 
-        data-aframe-default-light="" 
-        aframe-injected="" 
-        rotation="8.021409131831525 0 0">
+          geometry="primitive:sphere; radius:5000; segmentsWidth:64; segmentsHeight:64"
+          material="shader:flat; color:#ffffff; fog:false; src:#img-photosphere-1 "
+          scale="-1.5 1.5 1.5"
+          rotation="0 -60 0" id="photosphere">
       </a-entity>
-    
+
+      <a-entity 
+        geometry="primitive:sphere; radius:5000; segmentsWidth:64; segmentsHeight:64"
+        material="shader:flat; transparent: true; color:#ffffff; fog:false; src:#img-uisphere-1 "
+        scale="-0.9 0.5 1"
+        rotation="0 -90 0" id="ui">
+      </a-entity>
+
     </a-scene>    
 
 </template>
