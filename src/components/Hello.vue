@@ -21,7 +21,7 @@
                 id="cursor"
                 position="0 0 -4.4"
                 geometry="primitive: ring; radiusOuter: 0.10; radiusInner: 0.05;"
-                material="color: white; shader: flat;"
+                material="color: indianred; shader: flat;"
                 visible="false">
             </a-entity>
 
