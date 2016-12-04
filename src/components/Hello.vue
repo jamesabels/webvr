@@ -19,7 +19,7 @@
             <a-entity
                 cursor="fuse: false; maxDistance: 500; timeout: 3000;"
                 id="cursor"
-                position="0 0 -3.4"
+                position="0 0 -4.4"
                 geometry="primitive: ring; radiusOuter: 0.10; radiusInner: 0.05;"
                 material="color: white; shader: flat;"
                 visible="false">
@@ -39,9 +39,9 @@
       <!--Background-->
       <a-entity 
           geometry="primitive:sphere; radius:5000; segmentsWidth:64; segmentsHeight:64"
-          material="shader:flat; color:#ffffff; fog:false; src:#vid-videosphere-1 "
+          material="shader:flat; color:#ffffff; fog:false; src:#img-photosphere-1 "
           scale="-2 2 2"
-          rotation="0 90 -220" id="photosphere">
+          rotation="0 90 90" id="photosphere">
       </a-entity>
 
        <!--UI-->
