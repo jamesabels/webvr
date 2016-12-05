@@ -6,7 +6,10 @@
           <img src="../assets/bg_combined.png" id="img-photosphere-1">
           <img src="../assets/ui.png" id="img-uisphere-1">
           <img src="../assets/card_1.png" id="img-uicard-1">
-          <video id="vid-videosphere-1" src="https://dl.dropboxusercontent.com/u/1854938/bg.mp4"
+          <img src="../assets/name.png" id="img-uiname-1">
+          <img src="../assets/instructions.png" id="img-uiins-1">
+          <img src="../assets/cubes_L.png" id="img-photosphere-2">
+          <video id="vid-videosphere-1" src="https://dl.dropboxusercontent.com/u/1854938/bg.mov"
           autoplay loop crossorigin></video>
       </a-assets>
 
@@ -16,22 +19,24 @@
             id="camera" 
             camera="far: 10000; fov: 80; near: 0.5;"
             look-controls="enabled: true">
-            <a-entity
-                cursor="fuse: false; maxDistance: 500; timeout: 3000;"
-                id="cursor"
-                position="0 0 -4.4"
-                geometry="primitive: ring; radiusOuter: 0.10; radiusInner: 0.05;"
-                material="color: white; shader: flat;"
-                visible="false">
+            <a-entity position="0 0 -3"
+                geometry="primitive: ring; radiusOuter: 0.30;
+                          radiusInner: 0.20;"
+                material="color: cyan; shader: flat"
+                cursor="maxDistance: 30; fuse: true">
+              <a-animation begin="click" easing="ease-in" attribute="scale"
+                  fill="backwards" from="0.1 0.1 0.1" to="1 1 1" dur="1500"></a-animation>
+              <a-animation begin="fusing" easing="ease-in" attribute="scale"
+                  fill="forwards" from="1 1 1" to="0.1 0.1 0.1" dur="1500"></a-animation>
             </a-entity>
 
-          <!--UI-->
+          <!--UI
           <a-entity 
             geometry="primitive:sphere; radius:5000; segmentsWidth:64; segmentsHeight:64"
             material="shader:flat; transparent: true; color:#ffffff; fog:false; src:#img-uisphere-1 "
-            scale="-1 0.5 0.7"    
+            scale="-2 0.5 2"    
             rotation="0 -90 0" id="ui">
-          </a-entity>
+          </a-entity>-->
 
         </a-entity>
       </a-entity>
@@ -39,37 +44,63 @@
       <!--Background-->
       <a-entity 
           geometry="primitive:sphere; radius:5000; segmentsWidth:64; segmentsHeight:64"
-          material="shader:flat; color:#ffffff; fog:false; src:#img-photosphere-1 "
+          material="shader:flat; color:#ffffff; fog:false; src:#vid-videosphere-1"
           scale="-2 2 2"
-          rotation="0 90 90" id="photosphere">
+          rotation="0 -90 0" id="photosphere">
       </a-entity>
 
-       <!--UI-->
-      <!--<a-entity 
+       <!--UI
+      <a-entity 
         geometry="primitive:sphere; radius:5000; segmentsWidth:64; segmentsHeight:64"
         material="shader:flat; transparent: true; color:#ffffff; fog:false; src:#img-uisphere-1 "
         scale="-0.7 0.5 0.8"
         rotation="0 -90 0" id="ui">
       </a-entity>-->
 
+      <!--UI 2-->
+      <a-entity
+        id="ui-name"
+        geometry="primitive:plane; width: 200; height: 64;"
+        position="0 -80 -160"
+        material="shader:flat; transparent: true; color:#ffffff; fog:false; src:#img-uiname-1"
+      ></a-entity>
+
+
+      <!--Instructions-->
+      <a-entity
+        id="instruct"
+        geometry="primitive:plane; width: 100; height: 40;"
+        position="0 1 -170"
+        material="shader: flat; color: #ffffff; transparent: true; fog: false; src:#img-uiins-1"
+      ></a-entity>
+
       <!--Card One-->
       <a-entity
         geometry="primitive:plane; width: 50; height: 96;"
-        position="0 1 -170"
+        position="-160 1 -170"
         material="shader: flat; color: #ffffff; transparent: true; fog: false; src:#img-uicard-1; "
-      ></a-entity>
+        href="/ocean">
+      >
+      </a-entity>
 
       <!--Card Two-->
       <a-entity
         geometry="primitive:plane; width: 50; height: 96;"
-        position="70 1 -170"
+        position="90 1 -170"
         material="shader: flat; color: #ffffff; transparent: true; fog: false; src:#img-uicard-1; "
       ></a-entity>
 
       <!--Card Three-->
       <a-entity
         geometry="primitive:plane; width: 50; height: 96;"
-        position="-70 1 -170"
+        position="-90 1 -170"
+        material="shader: flat; color: #ffffff; transparent: true; fog: false; src:#img-uicard-1; "
+      ></a-entity>
+      
+      <!--Card Four-->
+      <a-entity
+        geometry="primitive:plane; width: 50; height: 96;"
+        position="160 1 -170"
         material="shader: flat; color: #ffffff; transparent: true; fog: false; src:#img-uicard-1; "
       ></a-entity>
 
@@ -79,6 +110,7 @@
 
 <script>
 require('aframe')
+require('aframe-href-component')
 
 export default {
   name: 'hello',
@@ -86,8 +118,20 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
+  },
+  mounted () {
+    let inst = document.getElementById('instruct')
+
+    inst.addEventListener('mouseEnter', function () {
+      console.log('Hovering over instructions!')
+    })
+
+    inst.addEventListener('mouseLeave', function () {
+      console.log('Leaving instructions!')
+    })
   }
 }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
