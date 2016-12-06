@@ -10,7 +10,7 @@
           <img src="../assets/instructions.png" id="img-uiins-1">
           <img src="../assets/cubes_L.png" id="img-photosphere-2">
           <video id="vid-videosphere-1" src="https://dl.dropboxusercontent.com/u/1854938/bg.mov"
-          autoplay loop crossorigin></video>
+          autoplay loop crossorigin webkit-playsinline></video>
       </a-assets>
 
       <!--Camera and Cursor-->
